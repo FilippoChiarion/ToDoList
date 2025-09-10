@@ -23,7 +23,7 @@ public class View {
             System.out.print("Escolha uma opção: ");
 
             int opcao = sc.nextInt();
-            sc.nextLine();
+            sc.nextLine();
 
 
           switch (opcao) {
@@ -84,3 +84,47 @@ public class View {
                         System.out.println("Tarefa não encontrada.");
                     }
                 }
+              case 5 -> {
+                  System.out.print("Digite o id da tarefa para remover: ");
+                  Long idRemover = sc.nextLong();
+                  sc.nextLine();
+                  if(servico.remover(idRemover)) {
+                      System.out.println("Tarefa removida com sucesso.");
+                  } else {
+                      System.out.println("Tarefa não encontrada.");
+                  }
+              }
+              case 6 -> {
+                  System.out.print("Digite o id da tarefa para marcar como concluída: ");
+                  Long idMarcar = sc.nextLong();
+                  sc.nextLine();
+                  if(servico.marcar(idMarcar)) {
+                      System.out.println("Tarefa marcada como concluída.");
+                  } else {
+                      System.out.println("Tarefa não encontrada.");
+                  }
+              }
+              case 7 -> {
+                  List<Tarefa> concluidas = servico.listarCompletas();
+                  if (concluidas.isEmpty()) {
+                      System.out.println("Não há tarefas concluídas.");
+                  } else {
+                      System.out.println("--- Lista de Tarefas Concluídas ---");
+                      for (Tarefa tarefa : concluidas) {
+                          System.out.println("ID: " + tarefa.getId());
+                          System.out.println("Título: " + tarefa.getTitulo());
+                          System.out.println("Descrição: " + tarefa.getDescricao());
+                          System.out.println("------------------------\n");
+                      }
+                  }
+              }
+              case 8 -> {
+                  System.out.println("Falouu!");
+                  sc.close();
+                  return;
+              }
+              default -> System.out.println("Opção inválida. Tente novamente.");
+          }
+        }
+    }
+}
