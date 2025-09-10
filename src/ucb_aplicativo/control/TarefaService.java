@@ -22,6 +22,7 @@ public class TarefaService {
             if (tarefa.getId().equals(id)) {
                 tarefa.setTitulo(novoTitulo);
                 tarefa.setDescricao(novaDescricao);
+                tarefa.setCompleta(false);
                 return true;
             }
         }
