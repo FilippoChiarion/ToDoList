@@ -56,4 +56,17 @@ public class TarefaService {
         }
         return null;
     }
+
+    public List<Tarefa> listarCompletas() {
+        List<Tarefa> tarefasCompletas = new ArrayList<>();
+
+    for (Tarefa tarefa : tarefas) {
+        if (tarefa.isCompleta() == true) {
+            tarefasCompletas.add(tarefa);
+        }
+    }
+        return tarefasCompletas;
+    }
 }
+
+   
