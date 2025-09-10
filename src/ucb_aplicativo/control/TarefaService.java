@@ -18,10 +18,10 @@ public class TarefaService {
     }
 
     public boolean atualizar(Long id, String novoTitulo, String novaDescricao) {
-        for (Tarefa teste : tarefas) {
-            if (teste.getId().equals(id)) {
-                teste.setTitulo(novoTitulo);
-                teste.setDescricao(novaDescricao);
+        for (Tarefa tarefa : tarefas) {
+            if (tarefa.getId().equals(id)) {
+                tarefa.setTitulo(novoTitulo);
+                tarefa.setDescricao(novaDescricao);
                 return true;
             }
         }
@@ -60,13 +60,11 @@ public class TarefaService {
     public List<Tarefa> listarCompletas() {
         List<Tarefa> tarefasCompletas = new ArrayList<>();
 
-    for (Tarefa tarefa : tarefas) {
-        if (tarefa.isCompleta() == true) {
-            tarefasCompletas.add(tarefa);
+        for (Tarefa tarefa : tarefas) {
+            if (tarefa.isCompleta() == true) {
+                tarefasCompletas.add(tarefa);
+            }
         }
-    }
         return tarefasCompletas;
     }
 }
-
-   
